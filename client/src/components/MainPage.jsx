@@ -1,6 +1,8 @@
 import React,{useState,useEffect} from "react";
 import Nav from "./Nav.jsx";
+
 // import axios from "axios";
+
 const MainPage=(props)=> {
 //   const [posts,setPosts] =useState([])
 //   useEffect(()=>{

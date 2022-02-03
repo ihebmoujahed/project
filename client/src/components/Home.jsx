@@ -3,12 +3,17 @@ import { Link } from 'react-router-dom';
 const Home = ()=>{
  return(
    <div>
+     <div className='home-list-container'>
      <Link to='/register'>
-       <li >register</li>
+     <li className='register'>REGISTER</li>
      </Link>
+     </div>
+     <div className='home-list-container'>
      <Link to='/LogIn'>
-       <li >LogIn</li>
+       <li >LOGIN</li>
      </Link>
+     </div>
+      
    </div>
  )
 }
