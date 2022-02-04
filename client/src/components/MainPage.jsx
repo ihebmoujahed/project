@@ -28,7 +28,8 @@ return (
           return (
             <div className="post-container" id={i}>
             <div className="image">
-            {elem}
+            <p>{elem.title}</p>
+            <img src={elem.image}/>
             </div>
               <button className="like-btn">Like</button>
               <button className="comment-btn">Comment</button>

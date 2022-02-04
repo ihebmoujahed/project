@@ -6,7 +6,7 @@ function PostNew(props) {
     const [url, setUrl] = useState('');
     const navigate = useNavigate()
     const posting = () => {
-        axios.post('http://localhost:3000/api/post', {
+        axios.post('/api/post', {
             title:title,
             image:url,
             userid:props.data
@@ -15,7 +15,7 @@ function PostNew(props) {
             console.log(result)
         });
     }
-
+console.log(title,url,props.data)
   return (
     <div>
         <label>Title</label>
@@ -23,7 +23,6 @@ function PostNew(props) {
         <label>URL</label>
         <input type='url' onChange={(e)=>setUrl(e.target.value)}></input>
         <button type='submit' onClick={()=>{posting;navigate("/MainPage");}}>Post</button>
-        
     </div>
   )     
 }
