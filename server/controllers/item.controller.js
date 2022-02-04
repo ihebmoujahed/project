@@ -81,6 +81,7 @@ var postgetwithid = (req, res) => {
   });
 };
 
+
 var deleteposte = (req, res) => {
   var delsql = "DELETE FROM posts WHERE id = ?";
   var params = { id: req.body.id };
@@ -147,6 +148,71 @@ var getcommit = (req, res) => {
     }
   });
 };
+
+var deleteposte=(req,res)=>{
+    var delsql = 'DELETE FROM posts WHERE id = ?'
+    var params = {id:req.body.id}
+    db.query(delsql,params,(err,result)=>{
+        if(err){
+            console.log(err)
+        }else {
+            console.log(result)
+        }
+    })
+    var deletcommits = 'DELETE FROM comments WHERE post_id = ?'
+    db.query(deletcommits,params,(err,result)=>{
+        if(err){
+            console.log(err)
+        }else{
+            console.log(result)
+        }
+    })
+}
+var searchName = (req,res)=>{
+    console.log(req.body.id);
+    var searchName ='SELECT * FROM users WHERE firstname OR lastname = ?'
+    console.log(req.body);
+    db.query(searchName,[req.body],(err,result)=>{
+        if(err){
+            console.log(err)
+        }else{
+            console.log(result)
+            res.send(result)
+        }
+    })
+}
+var searchget=(req,res)=>{
+    // console.log(req.body);
+    // var searchget = 'SELECT * FROM users WHERE firstname OR lastname = ? '
+    // db.query(searchget,req.body,(err,result)=>{
+    //     if(err){
+    //         console.log(err)
+    //     }else{
+    //         console.log(result)
+    //     }
+    // })
+}
+var updateAccunt =async (req, res)=>{ 
+var salt=await bcrypt.genSalt()
+var pass=await bcrypt.hash(req.body.password,salt)
+    var update =`UPDATE users SET firstname = ?, lastname = ?, email = ?, phonenumber = ?, password= ? WHERE id = ?`
+    var params= [req.body.firstname,req.body.lastname,req.body.email,req.body.phonenumber,pass,req.body.id]
+    db.query(update,params,(err,result)=>{
+        if(err) console.log(err);
+        console.log(result)
+    })  
+}
+var getcommit = (req,res)=>{
+    var getcommit ='SELECT * FROM comments WHERE userid = ?'
+    db.query(getcommit,req.body,(err,result)=>{
+        if(err){
+            console.log(err)
+        }else{
+            console.log(result)
+        }
+    })
+}
+
 
 var commits = (req, res) => {
   var commsql = "INSERT INTO comments SET ? ";
