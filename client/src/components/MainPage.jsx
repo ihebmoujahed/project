@@ -12,15 +12,16 @@ const MainPage=(props)=> {
   const [share, setShare] = useState();
   const [status, setStatus] = useState(false);
 
-  useEffect(()=>{
-   axios.get("api/get/post")
-   .then((res)=>{
-     setPosts(res.data);
-     console.log(res.data, "hello")
-   })
-    .catch((err)=>
-    console.log(err))
-  })
+  // useEffect(()=>{
+  //  axios.get("api/get/post")
+  //  .then((res)=>{
+  //    setPosts(res.data);
+  //    console.log(res.data, "hello")
+  //  })
+  //   .catch((err)=>
+  //   console.log(err))
+  // })
+  
 
   const handleComment = () =>{
     axios.post("/commits", {
@@ -29,6 +30,7 @@ const MainPage=(props)=> {
       post_id:commentId
     })
   }
+
 
 return (
     <div>

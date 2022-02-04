@@ -15,19 +15,19 @@ const Account = (props) =>{
   
   return(
   <div id="color">
-    <div className="container">
+    <div className="account-container">
       <h1 id="name">
       {info.firstName}
       </h1>
       <Link to='/Editprofile'>
-      <li id="editprofile" >Edit profile</li>
+      <li id="editprofile">Edit profile</li>
       </Link> 
       <Link to='/MainPage'>
       <li>HomePage</li>
       </Link> 
       {/* id="title" */}
     </div>
-    <div className="container1">
+    <div className="info-account-container">
       <h3 className="name1">200 posts</h3>
       <h3 className="name1">50 likes</h3>
     </div>
