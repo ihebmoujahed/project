@@ -95,24 +95,28 @@ var deleteposte=(req,res)=>{
     })
 }
 var searchName = (req,res)=>{
-    var searchName ='SELECT * FROM users WHERE firstname OR lastname =? '
-    db.query(searchName,req.body,(err,result)=>{
+    console.log(req.body.id);
+    var searchName ='SELECT * FROM users WHERE firstname OR lastname = ?'
+    console.log(req.body);
+    db.query(searchName,[req.body],(err,result)=>{
         if(err){
             console.log(err)
         }else{
             console.log(result)
+            res.send(result)
         }
     })
 }
 var searchget=(req,res)=>{
-    var searchget = 'SELECT * FROM users WHERE firstname OR lastname =? '
-    db.query(searchget,req.body,(err,result)=>{
-        if(err){
-            console.log(err)
-        }else{
-            console.log(result)
-        }
-    })
+    // console.log(req.body);
+    // var searchget = 'SELECT * FROM users WHERE firstname OR lastname = ? '
+    // db.query(searchget,req.body,(err,result)=>{
+    //     if(err){
+    //         console.log(err)
+    //     }else{
+    //         console.log(result)
+    //     }
+    // })
 }
 var updateAccunt =async (req, res)=>{ 
 var salt=await bcrypt.genSalt()
