@@ -11,16 +11,29 @@ body {
   height: 100px;
   width: 400px;
   display: flex;
-  padding-top: 20px;
-  padding-left: 20px;
+  padding-top: 10px;
+  padding-left: 10px;
+  padding-bottom: 10px;
+  padding-right: 10px;
   flex-direction: column;
+  align-items: center;
   border-radius: 3px;
-  background-color: #fafafa;
+  background-color:cadetblue;
+  margin-bottom: 2%;
+}
+
+.container-home{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
 
 li {
   list-style: none;
   font-size: large;
+  color: white;
+  text-align: center;
+  padding-top: 23px;
 }
 
 .Registration {
@@ -64,6 +77,7 @@ li {
   height: 60px;
   top: 0;
 }
+
 
 #homePage {
   text-transform: uppercase;
@@ -197,73 +211,25 @@ li {
   background-size: cover;
 }
 
-.container {
+.account-container {
   display: flex;
   margin-left: 600px;
+  justify-content: space-between;
+  align-items: center;
+  top:0;
 }
 
-.container1 {
+.info-account-container {
   display: flex;
-  margin-left: 650px;
-  justify-content: flex-start;
+  justify-content: space-between;
   column-gap: 10px;
 }
 
-#editprofile {
-  margin-left: 8px;
-  margin-top: 15px;
-  padding: 1rem;
-  text-transform: uppercase;
-  color: #fafafa;
-  background-color: rgb(24, 57, 83);
-  border: none;
-  border-radius: 3px;
-  box-shadow: 1px 1px 10px rgba(50, 50, 50, 0.4);
-  transition: 0.3s all ease;
-  letter-spacing: 0.1rem;
-  font-size: 0.85rem;
-  position: relative;
-  top: 0;
-  right: 0;
-  padding-left: 2.5rem;
-  font-family: "Barrio", sans-serif;
-  font-weight: bold;
-  font-size: 1rem;
-  color: darken(green, 20%);
-  transition: 0.3s all ease;
-  box-shadow: 1px 1px 20px rgba(150, 150, 150, 0.2);
-  height: 55px;
-}
 
 #name {
   font-family: "Open Sans";
 }
 
-#title {
-  margin-left: -930px;
-  margin-top: 12px;
-  padding: 1rem;
-  text-transform: uppercase;
-  color: #fafafa;
-  background-color: rgb(24, 57, 83);
-  border: none;
-  border-radius: 3px;
-  box-shadow: 1px 1px 10px rgba(50, 50, 50, 0.4);
-  transition: 0.3s all ease;
-  letter-spacing: 0.1rem;
-  font-size: 0.85rem;
-  position: relative;
-  top: 0;
-  right: 0;
-  padding-left: 2.5rem;
-  font-family: "Barrio", sans-serif;
-  font-weight: bold;
-  font-size: 1rem;
-  color: darken(green, 20%);
-  transition: 0.3s all ease;
-  box-shadow: 1px 1px 20px rgba(150, 150, 150, 0.2);
-  height: 55px;
-}
 .container2 {
   display: flex;
   justify-content: center;
@@ -313,17 +279,17 @@ li {
   color: white;
 }
 
-/*
-.container {
+.post-new-container{
   display: flex;
   flex-direction: column;
-  border: solid cornsilk;
+  padding-left: 250px;
+  padding-right: 250px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  margin-right: 10%;
+  margin-left: 10%;
+  margin-bottom: 5%;
+  background-color:#757575b0  ;  
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: larger;
 }
-
-.nav-bar {
-  display: flex;
-  flex-direction: row;
-  align-content: space-around;
-  align-items: center;
-}
-*/

@@ -32,6 +32,7 @@ var login = (req, res) => {
         .then((result) => {
           if (result === true) {
             res.json({ redirct: "/MainPage", userinfo: elem });
+            
           }
         })
         .catch((err) => {
@@ -49,14 +50,14 @@ var post = (req, res) => {
     user_id: req.body.userid,
   };
 
-  console.log(params);
-  // db.query(postsql, [params], (err, result) => {
-  //   if (err) {
-  //     console.log(err);
-  //   } else {
-  //     console.log(result);
-  //   }
-  // });
+  console.log(req.body);
+  db.query(postsql, [params], (err, result) => {
+    if (err) {
+      console.log(err);
+    } else {
+      console.log(result);
+    }
+  });
 };
 
 var postget = (req, res) => {
@@ -65,8 +66,9 @@ var postget = (req, res) => {
     if (err) {
       console.log(err);
     } else {
+      res.send(result);
       console.log(result);
-      res.send(result)
+      
     }
   });
 };
