@@ -52,9 +52,11 @@ const Register = () => {
         onChange={(e) => setPassword(e.target.value)}
       ></input>
       <br />
-      <button id="register-btn" type="submit" onClick={signing && routeChange}>
-        {" "}
-        Register{" "}
+      <button id="register-btn" type="submit" onClick={()=>{
+        signing;
+        routeChange
+         }}>
+        Register
       </button>
     </div>
   );
