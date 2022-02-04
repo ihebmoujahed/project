@@ -1,6 +1,6 @@
 import React,{useState} from "react";
 import axios from "axios";
-function Search() {
+function Search({placeholder , data}) {
  const [search,setSearch]=useState('')
  const [info,setinfo]=useState([])
 const Search =()=>{
