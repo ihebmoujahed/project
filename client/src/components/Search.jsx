@@ -1,23 +1,27 @@
-import React from "react";
-
+import React,{useState} from "react";
+import axios from "axios";
 function Search() {
+ const [search,setSearch]=useState('')
+ const [info,setinfo]=useState([])
+const Search =()=>{
+axios.post('/api/searchName',{id:search})
+.then((res)=>{setinfo(res.data)})
+.catch((err)=>{console.log(err)})
+}
   return (
     <div>
       {/* <h4> Search :</h4> */}
-      <label>
         <input
           id="inputSearch"
           type="text"
           name="search"
           placeholder="top trending"
-          onClick={() => this.handleChange}
+          onChange={(e) => setSearch(e.target.value)}
         />
-      </label>
-      <label>
-        <button id="search" type="submit">
+        <button id="search" type="submit" onClick={Search}>
           Search
         </button>
-      </label>
+      
     </div>
   );
 }
