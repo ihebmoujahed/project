@@ -1,7 +1,9 @@
 import React,{useState,useEffect} from "react";
 import axios from "axios";
 import { Link } from 'react-router-dom';
+
 const Account = (props) =>{ 
+
   const [info,setinfo]=useState(props.data)
   // const [infopost,setinfopost]=useState([])
   // useEffect(() =>{
@@ -10,12 +12,19 @@ const Account = (props) =>{
   //  .catch((err)=>{console.log(err)})
   // })
   console.log(props.data.id);
+  
   return(
   <div id="color">
     <div className="container">
-      <h1 id="name"> {info.firstName} </h1>
-      <Link to='/Editprofile' ><li id="editprofile" >Edit profile</li></Link> 
-      <Link to='/MainPage' ><li  >HomePage</li></Link> 
+      <h1 id="name">
+      {info.firstName}
+      </h1>
+      <Link to='/Editprofile'>
+      <li id="editprofile" >Edit profile</li>
+      </Link> 
+      <Link to='/MainPage'>
+      <li>HomePage</li>
+      </Link> 
       {/* id="title" */}
     </div>
     <div className="container1">
