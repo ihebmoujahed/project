@@ -1,15 +1,329 @@
-body{
-  margin:10px;
-  padding:30px
+body {
+  margin: 1%;
+  padding: 3%;
+  font-size: 16px;
+  text-decoration: none;
+  list-style: none;
+  background-image: url("https://images.pexels.com/photos/1731427/pexels-photo-1731427.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
 }
 
-.Registration{
+.home-list-container {
+  height: 100px;
+  width: 400px;
+  display: flex;
+  padding-top: 20px;
+  padding-left: 20px;
+  flex-direction: column;
+  border-radius: 3px;
+  background-color: #fafafa;
+}
+
+li {
+  list-style: none;
+  font-size: large;
+}
+
+.Registration {
   display: flex;
   flex-direction: column;
-
 }
 
 .login-container {
   display: flex;
-  flex-direction: column
+  flex-direction: column;
+  padding-left: 250px;
+  padding-right: 250px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  margin-right: 10%;
+  margin-left: 10%;
+  margin-bottom: 5%;
+  background-color: #47ec9a;
+  border-radius: 3%;
 }
+
+#login-button {
+  margin-left: 30%;
+  margin-right: 30%;
+  background-color: #f1f1f1b6;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+#login-button:hover {
+  background-color: black;
+  color: white;
+}
+
+.nav {
+  position: sticky;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 60px;
+  top: 0;
+}
+
+#homePage {
+  text-transform: uppercase;
+  color: #fafafa;
+  background-color: rgb(24, 57, 83);
+  border: none;
+  border-radius: 3px;
+  box-shadow: 1px 1px 10px rgba(50, 50, 50, 0.4);
+  transition: 0.3s all ease;
+  letter-spacing: 0.1rem;
+  font-size: 0.85rem;
+  position: relative;
+  top: 0;
+  right: 0;
+  font-family: "Barrio", sans-serif;
+  font-weight: bold;
+  font-size: 1rem;
+  color: darken(green, 20%);
+  transition: 0.3s all ease;
+  box-shadow: 1px 1px 20px rgba(150, 150, 150, 0.2);
+  right: -0.9rem;
+  cursor: pointer;
+}
+
+#upload {
+  margin: auto;
+  padding: 1rem;
+  text-transform: uppercase;
+  color: #fafafa;
+  background-color: rgb(24, 57, 83);
+  border: none;
+  border-radius: 3px;
+  box-shadow: 1px 1px 10px rgba(50, 50, 50, 0.4);
+  transition: 0.3s all ease;
+  letter-spacing: 0.1rem;
+  font-size: 0.85rem;
+  position: relative;
+  top: 0;
+  right: 0;
+  padding-left: 2.5rem;
+
+  font-family: "Barrio", sans-serif;
+  font-weight: bold;
+  font-size: 1rem;
+  color: darken(green, 20%);
+  transition: 0.3s all ease;
+
+  content: "_";
+  top: 0.8rem;
+
+  box-shadow: 1px 1px 20px rgba(150, 150, 150, 0.2);
+
+  right: 90px;
+  cursor: pointer;
+}
+
+#search {
+  margin: auto;
+  padding: 0.3rem;
+  text-transform: uppercase;
+  color: #fafafa;
+  background-color: rgb(24, 57, 83);
+  border: none;
+  border-radius: 3px;
+  box-shadow: 1px 1px 10px rgba(50, 50, 50, 0.4);
+  transition: 0.3s all ease;
+  letter-spacing: 0.1rem;
+  font-size: 0.85rem;
+  position: relative;
+  top: 0;
+  right: 0;
+  padding-left: 2.5rem;
+
+  font-family: "Barrio", sans-serif;
+  font-weight: bold;
+  font-size: 1rem;
+  color: darken(green, 20%);
+  transition: 0.3s all ease;
+
+  content: "_";
+
+  box-shadow: 1px 1px 20px rgba(150, 150, 150, 0.2);
+
+  right: -5px;
+  top: -0px;
+  cursor: pointer;
+}
+
+#inputSearch {
+  width: 250px;
+  margin-left: 310px;
+  margin-top: 20px;
+}
+
+#profileButton {
+  margin: auto;
+  padding: 0.9rem;
+  text-transform: uppercase;
+  color: #fafafa;
+  background-color: rgb(24, 57, 83);
+  border: none;
+  border-radius: 3px;
+  box-shadow: 1px 1px 10px rgba(50, 50, 50, 0.4);
+  transition: 0.3s all ease;
+  letter-spacing: 0.1rem;
+  font-size: 0.85rem;
+  position: relative;
+  top: 0;
+  right: 0;
+  padding-left: 2.5rem;
+
+  font-family: "Barrio", sans-serif;
+  font-weight: bold;
+  font-size: 1rem;
+  color: darken(green, 20%);
+  transition: 0.3s all ease;
+
+  content: "_";
+
+  box-shadow: 1px 1px 20px rgba(150, 150, 150, 0.2);
+
+  right: -110px;
+  top: -36px;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+#color {
+  background-color: lightseagreen;
+  background-image: url("https://images.pexels.com/photos/1731427/pexels-photo-1731427.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+  background-size: cover;
+}
+
+.container {
+  display: flex;
+  margin-left: 600px;
+}
+
+.container1 {
+  display: flex;
+  margin-left: 650px;
+  justify-content: flex-start;
+  column-gap: 10px;
+}
+
+#editprofile {
+  margin-left: 8px;
+  margin-top: 15px;
+  padding: 1rem;
+  text-transform: uppercase;
+  color: #fafafa;
+  background-color: rgb(24, 57, 83);
+  border: none;
+  border-radius: 3px;
+  box-shadow: 1px 1px 10px rgba(50, 50, 50, 0.4);
+  transition: 0.3s all ease;
+  letter-spacing: 0.1rem;
+  font-size: 0.85rem;
+  position: relative;
+  top: 0;
+  right: 0;
+  padding-left: 2.5rem;
+  font-family: "Barrio", sans-serif;
+  font-weight: bold;
+  font-size: 1rem;
+  color: darken(green, 20%);
+  transition: 0.3s all ease;
+  box-shadow: 1px 1px 20px rgba(150, 150, 150, 0.2);
+  height: 55px;
+}
+
+#name {
+  font-family: "Open Sans";
+}
+
+#title {
+  margin-left: -930px;
+  margin-top: 12px;
+  padding: 1rem;
+  text-transform: uppercase;
+  color: #fafafa;
+  background-color: rgb(24, 57, 83);
+  border: none;
+  border-radius: 3px;
+  box-shadow: 1px 1px 10px rgba(50, 50, 50, 0.4);
+  transition: 0.3s all ease;
+  letter-spacing: 0.1rem;
+  font-size: 0.85rem;
+  position: relative;
+  top: 0;
+  right: 0;
+  padding-left: 2.5rem;
+  font-family: "Barrio", sans-serif;
+  font-weight: bold;
+  font-size: 1rem;
+  color: darken(green, 20%);
+  transition: 0.3s all ease;
+  box-shadow: 1px 1px 20px rgba(150, 150, 150, 0.2);
+  height: 55px;
+}
+.container2 {
+  display: flex;
+  justify-content: center;
+  margin-left: -20px;
+  background-color: lightyellow;
+}
+
+.name1 {
+  font-family: Cambria;
+}
+#name2 {
+  font-family: Calibri;
+}
+.container3 {
+  display: flex;
+  background-color: rgb(255, 255, 255);
+  justify-content: center;
+  height: 400px;
+}
+
+.Registration {
+  display: flex;
+  flex-direction: column;
+  padding-left: 250px;
+  padding-right: 250px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  margin-right: 10%;
+  margin-left: 10%;
+  margin-bottom: 5%;
+  background-color: #47ec9a;
+  border-radius: 3%;
+  flex-wrap: wrap;
+}
+
+#register-btn {
+  margin-left: 30%;
+  margin-right: 30%;
+  background-color: #f1f1f1b6;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+#register-btn:hover {
+  background-color: black;
+  color: white;
+}
+
+/*
+.container {
+  display: flex;
+  flex-direction: column;
+  border: solid cornsilk;
+}
+
+.nav-bar {
+  display: flex;
+  flex-direction: row;
+  align-content: space-around;
+  align-items: center;
+}
+*/
