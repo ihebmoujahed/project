@@ -1,25 +1,25 @@
-import React from 'react';
+import React from "react";
 import Search from "./Search.jsx";
-import {Link} from 'react-router-dom'
+import { Link } from "react-router-dom";
 
-// import style from "../../public/style.css" 
- function Nav() {
+// import style from "../../public/style.css"
+function Nav() {
   return (
-  <div className='nav-bar'>
-    <div className ='left-side'> 
-       <Link to='/MainPage' ><li id='HomePage'>HomePage</li></Link> 
+    <div className="nav-bar">
+      <nav className="nav">
+        <Link to="/MainPage">
+          <li id="HomePage">HOME PAGE</li>
+        </Link>
+        <Search />
+        <Link to="/PostNew">
+          <li>Post</li>
+        </Link>
+        <Link to="/account">
+          <li>My Profile</li>
+        </Link>
+      </nav>
     </div>
-       <div className ='middle-side'>
-     <Search/>      
-    </div>
-       <div className ='right-side'>
-       <Link to='/PostNew' ><li>PostNew</li></Link>
-       </div>
-         <div className ='right-side'>
-         <Link to='/account' ><li>account</li></Link>
-         </div>
-      </div> 
-  )
+  );
 }
 
-export default Nav ;
+export default Nav;
