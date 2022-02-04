@@ -10,7 +10,6 @@ axios.post('/api/searchName',{id:search})
 }
   return (
     <div>
-      {/* <h4> Search :</h4> */}
         <input
           id="inputSearch"
           type="text"

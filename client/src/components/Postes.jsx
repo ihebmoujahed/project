@@ -20,22 +20,22 @@ const Postes=(props)=> {
   
   return (
       <div>
-              <div className="post-container" id={props.data.id}>
-                <p>{props.data.title}</p>
-              <img src={props.data.image} className="image" width="100" height="100"/>
-                <button className="like-btn" >Like</button>
-                <button className="comment-btn"  onClick={()=>{setStatus(true);setCommentId(props.data.id)} }>Comment</button>
-                <button className="share-btn">Share</button>
-                {status?
-                <div>
-                <textarea name="comments" id={props.data.id}
+        <div className="post-container" id={props.data.id}>
+          <p>{props.data.title}</p>
+          <img src={props.data.image} className="image" width="100" height="100"/>
+          <button className="like-btn" >Like</button>
+          <button className="comment-btn"  onClick={()=>{setStatus(true);setCommentId(props.data.id)} }>Comment</button>
+          <button className="share-btn">Share</button>
+          {status?
+            <div>
+             <textarea name="comments" 
                 onChange={(e)=> setComment(e.target.value)}>
-                </textarea> 
-                <input type="submit" value="submit"onClick={()=>{handleComment();setStatus(false);}}/>
-                </div>:
-                null
-                }
-              </div>
+              </textarea> 
+              <input type="submit" value="submit"onClick={()=>{handleComment();setStatus(false);}}/>
+            </div>
+            :null
+          }
+        </div>
       </div>
   );  
   }

@@ -1,18 +1,27 @@
 import React,{useState,useEffect} from "react";
 import axios from "axios";
 import { Link } from 'react-router-dom';
-
 const Account = (props) =>{ 
-
   const [info,setinfo]=useState(props.data)
-  // const [infopost,setinfopost]=useState([])
-  // useEffect(() =>{
-  //  axios.get("/api/get/post/id",{id:props.data.id})
-  //  .then((res)=>{res.data})
-  //  .catch((err)=>{console.log(err)})
-  // })
-  console.log(props.data.id);
-  
+  const [infopost,setinfopost]=useState([])
+  useEffect(() =>{
+    axios.post("/api/get/post/id",{id:props.data.id})
+    .then((res)=>{setinfopost(res.data)})
+    .catch((err)=>{console.log(err)})
+   },[])
+  const deletepost=(id)=>{
+    console.log(id);
+    axios.delete("/api/delete/poste/commit",{id:id})
+    .then((res)=>{console.log(res)})
+    .catch((err)=>{console.log(err)})
+  }   
+  useEffect(() =>{
+   axios.post("/api/get/post/id",{id:props.data.id})
+   .then((res)=>{setinfopost(res.data)})
+   .catch((err)=>{console.log(err)})
+  },[])
+ 
+
   return(
   <div id="color">
     <div className="account-container">
@@ -25,18 +34,24 @@ const Account = (props) =>{
       <Link to='/MainPage'>
       <li>HomePage</li>
       </Link> 
-      {/* id="title" */}
     </div>
     <div className="info-account-container">
-      <h3 className="name1">200 posts</h3>
+      <h3 className="name1">{infopost.length} posts</h3>
       <h3 className="name1">50 likes</h3>
     </div>
-    <div className="container2">{/* <h1 id="name2">Posts</h1> */}</div>
-    <div className="container3">
-      <img src="https://images.pexels.com/photos/428431/pexels-photo-428431.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" />
-      <img src="https://images.pexels.com/photos/1036371/pexels-photo-1036371.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" />
-      <img src="https://images.pexels.com/photos/50859/pexels-photo-50859.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" />
-    </div>
+    {
+      infopost.map((elem,key)=>{
+        return ( 
+          <div id={elem.id}>
+            <button onClick={()=>{deletepost(elem.id)}}>x</button>
+           <div  >
+             <p>{elem.title}</p>
+             <img src={elem.image} width="100" height="100" />
+           </div>
+         </div>
+        )
+      })
+    }
   </div>
 );}
 

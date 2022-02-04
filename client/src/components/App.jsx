@@ -19,13 +19,12 @@ class App extends React.Component {
     }
   }
   componentDidMount() {
-    axios.get('http://localhost:3000/api/searchName').then((results) => {
+    axios.get('/api/searchName')
+    .then((results) => {
         console.log(results)
-        this.setState({
-          search: results.data
-        })
-    }).catch((err) => { consol.log(err) });
-    
+        this.setState({ search: results.data})
+    })
+    .catch((err) => { console.log(err) });
 }
     connect (emailLog,passwordLog)  {
       axios.post('http://localhost:3000/api/login', {

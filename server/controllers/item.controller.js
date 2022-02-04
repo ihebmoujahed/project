@@ -73,9 +73,9 @@ var postget = (req, res) => {
   });
 };
 var postgetwithid = (req, res) => {
-  console.log(req.body);
-  var postgetidsql = "SELECT * FROM posts WHERE user_id= ? ";
-  db.query(postgetidsql, (err, result) => {
+console.log(req.body)
+  var postgetidsql = "SELECT * FROM posts WHERE user_id = ?";
+  db.query(postgetidsql,[req.body.id],(err, result) => {
     if (err) {
       console.log(err);
     } else {
@@ -87,23 +87,23 @@ var postgetwithid = (req, res) => {
 
 
 var deleteposte = (req, res) => {
-  var delsql = "DELETE FROM posts WHERE id = ?";
-  var params = { id: req.body.id };
-  db.query(delsql, params, (err, result) => {
-    if (err) {
-      console.log(err);
-    } else {
-      console.log(result);
-    }
-  });
-  var deletcommits = "DELETE FROM comments WHERE post_id = ?";
-  db.query(deletcommits, params, (err, result) => {
-    if (err) {
-      console.log(err);
-    } else {
-      console.log(result);
-    }
-  });
+  console.log(req.body.id)
+  // var delsql = "DELETE FROM posts WHERE id = ?";
+  // db.query(delsql, [req.body.id], (err, result) => {
+  //   if (err) {
+  //     console.log(err);
+  //   } else {
+  //     console.log(result);
+  //   }
+  // });
+  // var deletcommits = "DELETE FROM comments WHERE post_id = ?";
+  // db.query(deletcommits,[req.body.id], (err, result) => {
+  //   if (err) {
+  //     console.log(err);
+  //   } else {
+  //     console.log(result);
+  //   }
+  // });
 };
 var searchName = (req, res) => {
   var searchName = "SELECT * FROM users WHERE firstname OR lastname =? ";
@@ -143,11 +143,13 @@ var updateAccunt = async (req, res) => {
   });
 };
 var getcommit = (req, res) => {
+  console.log(req.body);
   var getcommit = "SELECT * FROM comments WHERE userid = ?";
-  db.query(getcommit, req.body, (err, result) => {
+  db.query(getcommit,[ req.body], (err, result) => {
     if (err) {
       console.log(err);
     } else {
+      res.send(result)
       console.log(result);
     }
   });

@@ -5,7 +5,7 @@ router.post("/register", itemController.register);
 router.post("/login", itemController.login);
 router.post("/post", itemController.post);
 router.get("/get/post", itemController.postget);
-router.get("/get/post/id", itemController.postgetwithid);
+router.post("/get/post/id", itemController.postgetwithid);
 router.post("/commits", itemController.commits);
 router.post("/searchName", itemController.searchName);
 router.get("/searchget", itemController.searchget);
