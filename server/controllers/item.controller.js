@@ -222,10 +222,11 @@ var commits = (req, res) => {
   var commsql = "INSERT INTO comments SET ? ";
   var params = {
     des: req.body.des,
-    post: req.body.post,
+    post_id: req.body.postid,
     user_id: req.body.userid,
   };
-  db.query(commsql, params, (err, result) => {
+  console.log(params)
+  db.query(commsql, [params], (err, result) => {
     if (err) {
       console.log(err);
     } else {

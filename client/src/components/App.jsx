@@ -13,7 +13,8 @@ class App extends React.Component {
     super(props);
     this.state = {
       userinfo:{},
-      redirect:'/'
+      redirect:'/',
+      data:[]
     }
   }
     connect (emailLog,passwordLog)  {

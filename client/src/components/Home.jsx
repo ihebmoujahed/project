@@ -13,12 +13,6 @@ const Home = ()=>{
        <li>LOGIN</li>
      </Link>
      </div>
-     {/* <div className='home-list-container'>
-     <Link to='/MainPage'>
-       <li>HOME</li>
-     </Link>
-     </div> */}
-      
    </div>
  )
 }
