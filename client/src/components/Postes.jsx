@@ -17,6 +17,17 @@ const Postes=(props)=> {
       })
       console.log(comment,"user",props.userid,"comid",commentId);
     }
+    //try the share 
+    const handleShare = (title,url,id) =>{
+      axios.post('/api/post', {
+        title:title,
+        image:url,
+        userid:id
+    })
+    .then((result)=>{
+        console.log(result)
+    });
+    }
   
   return (
       <div>
@@ -25,7 +36,7 @@ const Postes=(props)=> {
           <img src={props.data.image} className="image" width="100" height="100"/>
           <button className="like-btn" >Like</button>
           <button className="comment-btn"  onClick={()=>{setStatus(true);setCommentId(props.data.id)} }>Comment</button>
-          <button className="share-btn">Share</button>
+          <button className="share-btn" onClick={()=>{handleShare(props.data.title,props.data.image,props.userid)} }>Share</button>
           {status?
             <div>
              <textarea name="comments" 

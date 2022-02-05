@@ -5,11 +5,6 @@ import axios from "axios";
 import 'regenerator-runtime/runtime';
 const MainPage=(props)=> {
   const [posts,setPosts] = useState([]);
-  // const [like, setLike] = useState(0); onClick={setLike(like+1)}
-  // const [comment, setComment] = useState(''); 
-  // const [commentId, setCommentId] = useState(0);
-  // // const [share, setShare] = useState();
-  // const [status, setStatus] = useState(false);
 
   useEffect(()=>{
     axios.get("/api/get/post")
@@ -22,16 +17,6 @@ const MainPage=(props)=> {
      console.log(err))
   },[])
   
-
-  // const handleComment = () =>{
-  //   // axios.post("/commits", {
-  //   //   des:comment,
-  //   //   user_id:props.userId,
-  //   //   post_id:commentId
-  //   // })
-  //   console.log(comment,"user",props.userId,"comid",commentId);
-  // }
-
 return (
     <div>
         <Nav />
