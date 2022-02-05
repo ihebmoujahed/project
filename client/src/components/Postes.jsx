@@ -1,8 +1,7 @@
 import React,{useState,useEffect} from "react";
-
+import Commints from "./Commints.jsx";
 import axios from "axios";
 const Postes=(props)=> {
-    // const [posts,setPosts] = useState([]);
     // const [like, setLike] = useState(0); onClick={setLike(like+1)}
     const [comment, setComment] = useState(''); 
     const [commentId, setCommentId] = useState(undefined);
@@ -26,9 +25,10 @@ const Postes=(props)=> {
     })
     .then((result)=>{
         console.log(result)
-    });
-    }
-  
+    })
+    .catch((error)=>{console.log(error)})
+  }
+
   return (
       <div>
         <div className="post-container" id={props.data.id}>
@@ -46,6 +46,7 @@ const Postes=(props)=> {
             </div>
             :null
           }
+          <Commints id={props.data.id}  />
         </div>
       </div>
   );  

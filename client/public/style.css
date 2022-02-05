@@ -199,7 +199,10 @@ li {
   background-color: black;
   color: white;
 }
-
+.post-container{
+  border-radius: 5px;
+  border: 1px rgb(8, 8, 8) solid;
+}
 .post-new-container{
   border: solid black 0.2px;
   display: flex;
