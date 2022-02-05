@@ -166,6 +166,33 @@ var deletecommits=(req, res)=>{
     }
   });
 }
+var likes=(req, res)=>{
+  var likesql='INSERT INTO likes SET ? '
+  var params = {
+    post_id: req.body.postid,
+    user_id: req.body.userid,
+  };
+  db.query(likesql,[params], (err, result) => {
+    if (err) {
+      console.log(err);
+    } else {
+      console.log(result);
+    }
+  });
+}
+var getlikes = (req, res) => {
+  console.log(req.body);
+  var getlikes= "SELECT * FROM likes ";
+  db.query(getlikes, (err, result) => {
+    if (err) {
+      console.log(err);
+    } else {
+      res.send(result)
+      console.log(result);
+    }
+  });
+};
+
 module.exports = {
   register,
   login,
@@ -178,5 +205,6 @@ module.exports = {
   getcommit,
   postget,
   postgetwithid,
-  deletecommits
+  deletecommits,
+  likes,getlikes
 };

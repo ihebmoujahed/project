@@ -14,7 +14,7 @@ const commints=(props)=> {
     
   return (
   <div>
-      {()=>{props.ref('do it')}}
+      
     {comitofposts.map((element, i)=>{return  (<p>{element.des}</p>) })}  
   </div>
   );

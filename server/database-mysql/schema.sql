@@ -32,6 +32,7 @@ create table comments(
 );
 create table likes( 
   id int NOT NULL AUTO_INCREMENT,
+  post_id INT NOT NULL,
   user_id int NOT NULL,
   PRIMARY KEY (ID),
   FOREIGN KEY (post_id) REFERENCES posts(id)

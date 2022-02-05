@@ -2,11 +2,16 @@ import React,{useState,useEffect} from "react";
 import axios from "axios";
 import { Link } from 'react-router-dom';
 const Account = (props) =>{ 
-  const [info,setinfo]=useState(props.data)
   const [infopost,setinfopost]=useState([])
+  const [infolikes,setinfolikes]=useState([])
+  let likes=[];
   useEffect(() =>{
     axios.post("/api/get/post/id",{id:props.data.id})
     .then((res)=>{setinfopost(res.data)})
+    .catch((err)=>{console.log(err)})
+
+    axios.get("/api/getlikes")
+    .then((res)=>{setinfolikes(res.data)})
     .catch((err)=>{console.log(err)})
    },[])
   const deletepost=(id)=>{
@@ -14,7 +19,7 @@ const Account = (props) =>{
     axios.delete("/api/delete/poste/commit",{data:{id:id}})
     .then((res)=>{console.log(res)})
     .catch((err)=>{console.log(err)})
-    
+
     axios.delete("/api/delete/poste",{data:{id:id}})
     .then((res)=>{console.log(res)})
     .catch((err)=>{console.log(err)})
@@ -22,15 +27,15 @@ const Account = (props) =>{
     axios.post("/api/get/post/id",{id:props.data.id})
    .then((res)=>{setinfopost(res.data)})
    .catch((err)=>{console.log(err)})
-  }   
-  
- //switch to class component && fix the delete
+  } 
+
 
   return(
   <div id="color">
+    {console.log(likes)}
     <div className="account-container">
       <h1 id="name">
-      {info.firstName}
+      {props.data.firstname} {props.data.lastname}
       </h1>
       <Link to='/Editprofile'>
       <li id="editprofile">Edit profile</li>
@@ -41,7 +46,7 @@ const Account = (props) =>{
     </div>
     <div className="info-account-container">
       <h3 className="name1">{infopost.length} posts</h3>
-      <h3 className="name1">50 likes</h3>
+      <h3 className="name1">{likes.length}likes</h3>
     </div>
     {
       infopost.map((elem,key)=>{
@@ -52,6 +57,7 @@ const Account = (props) =>{
              <p>{elem.title}</p>
              <img src={elem.image} width="100" height="100" />
            </div>
+           {infolikes.filter((a)=>{a.post_id === elem.id ? likes.push(a) : null })}
          </div>
         )
       })

@@ -13,4 +13,6 @@ router.delete("/delete/poste", itemController.deleteposte);
 router.put("/updateAccunt", itemController.updateAccunt);
 router.post("/get/commit", itemController.getcommit);
 router.delete("/delete/poste/commit", itemController.deletecommits);
+router.post("/likes", itemController.likes);
+router.get("/getlikes", itemController.getlikes);
 module.exports = router;

@@ -27,7 +27,7 @@ const Register = () => {
 
   let navigate = useNavigate();
   const routeChange = () => {
-    let path = "/MainPage";
+    let path = "/LogIn";
     navigate(path);
   };
 
