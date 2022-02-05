@@ -27,7 +27,7 @@ const Register = () => {
 
   let navigate = useNavigate();
   const routeChange = () => {
-    let path = "/MainPage";
+    let path = "/LogIn";
     navigate(path);
   };
 
@@ -53,8 +53,8 @@ const Register = () => {
       ></input>
       <br />
       <button id="register-btn" type="submit" onClick={()=>{
-        signing;
-        routeChange
+        signing();
+        routeChange()
          }}>
         Register
       </button>

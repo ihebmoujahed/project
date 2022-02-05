@@ -49,8 +49,6 @@ var post = (req, res) => {
     image: req.body.image,
     user_id: req.body.userid,
   };
-
-  console.log(req.body);
   db.query(postsql, [params], (err, result) => {
     if (err) {
       console.log(err);
@@ -67,13 +65,10 @@ var postget = (req, res) => {
       console.log(err);
     } else {
       res.send(result);
-      console.log(result);
-      
     }
   });
 };
 var postgetwithid = (req, res) => {
-console.log(req.body)
   var postgetidsql = "SELECT * FROM posts WHERE user_id = ?";
   db.query(postgetidsql,[req.body.id],(err, result) => {
     if (err) {
@@ -87,23 +82,16 @@ console.log(req.body)
 
 
 var deleteposte = (req, res) => {
-  console.log(req.body.id)
-  // var delsql = "DELETE FROM posts WHERE id = ?";
-  // db.query(delsql, [req.body.id], (err, result) => {
-  //   if (err) {
-  //     console.log(err);
-  //   } else {
-  //     console.log(result);
-  //   }
-  // });
-  // var deletcommits = "DELETE FROM comments WHERE post_id = ?";
-  // db.query(deletcommits,[req.body.id], (err, result) => {
-  //   if (err) {
-  //     console.log(err);
-  //   } else {
-  //     console.log(result);
-  //   }
-  // });
+  console.log(req.body,'del with id')
+  var delsql = "DELETE FROM posts WHERE id = ?";
+  db.query(delsql, [req.body.id], (err, result) => {
+    if (err) {
+      console.log(err);
+    } else {
+      console.log(result);
+    }
+  });
+
 };
 var searchName = (req, res) => {
   var searchName = "SELECT * FROM users WHERE firstname OR lastname =? ";
@@ -125,79 +113,9 @@ var searchget = (req, res) => {
     }
   });
 };
-var updateAccunt = async (req, res) => {
-  var salt = await bcrypt.genSalt();
-  var pass = await bcrypt.hash(req.body.password, salt);
-  var update = `UPDATE users SET firstname = ?, lastname = ?, email = ?, phonenumber = ?, password= ? WHERE id = ?`;
-  var params = [
-    req.body.firstname,
-    req.body.lastname,
-    req.body.email,
-    req.body.phonenumber,
-    pass,
-    req.body.id,
-  ];
-  db.query(update, params, (err, result) => {
-    if (err) console.log(err);
-    console.log(result);
-  });
-};
-var getcommit = (req, res) => {
-  console.log(req.body);
-  var getcommit = "SELECT * FROM comments WHERE userid = ?";
-  db.query(getcommit,[ req.body], (err, result) => {
-    if (err) {
-      console.log(err);
-    } else {
-      res.send(result)
-      console.log(result);
-    }
-  });
-};
 
-var deleteposte=(req,res)=>{
-    var delsql = 'DELETE FROM posts WHERE id = ?'
-    var params = {id:req.body.id}
-    db.query(delsql,params,(err,result)=>{
-        if(err){
-            console.log(err)
-        }else {
-            console.log(result)
-        }
-    })
-    var deletcommits = 'DELETE FROM comments WHERE post_id = ?'
-    db.query(deletcommits,params,(err,result)=>{
-        if(err){
-            console.log(err)
-        }else{
-            console.log(result)
-        }
-    })
-}
-var searchName = (req,res)=>{
-    console.log(req.body.id);
-    var searchName ='SELECT * FROM users WHERE firstname OR lastname = ?'
-    console.log(req.body);
-    db.query(searchName,[req.body],(err,result)=>{
-        if(err){
-            console.log(err)
-        }else{
-            console.log(result)
-            res.send(result)
-        }
-    })
-}
-var searchget=(req,res)=>{
-    // console.log(req.body);
-    // var searchget = 'SELECT * FROM users WHERE firstname OR lastname = ? '
-    // db.query(searchget,req.body,(err,result)=>{
-    //     if(err){
-    //         console.log(err)
-    //     }else{
-    //         console.log(result)
-    //     }
-    // })
-}
+
+
 var updateAccunt =async (req, res)=>{ 
 var salt=await bcrypt.genSalt()
 var pass=await bcrypt.hash(req.body.password,salt)
@@ -208,17 +126,6 @@ var pass=await bcrypt.hash(req.body.password,salt)
         console.log(result)
     })  
 }
-var getcommit = (req,res)=>{
-    var getcommit ='SELECT * FROM comments WHERE userid = ?'
-    db.query(getcommit,req.body,(err,result)=>{
-        if(err){
-            console.log(err)
-        }else{
-            console.log(result)
-        }
-    })
-}
-
 
 var commits = (req, res) => {
   var commsql = "INSERT INTO comments SET ? ";
@@ -236,6 +143,56 @@ var commits = (req, res) => {
     }
   });
 };
+var getcommit = (req, res) => {
+  console.log(req.body);
+  var getcommit = "SELECT * FROM comments WHERE post_id = ?";
+  db.query(getcommit,[ req.body.id], (err, result) => {
+    if (err) {
+      console.log(err);
+    } else {
+      res.send(result)
+      console.log(result);
+    }
+  });
+};
+var deletecommits=(req, res)=>{
+  console.log(req.body,'del with postid')
+   var deletcommits = "DELETE FROM comments WHERE post_id = ?";
+  db.query(deletcommits,[req.body.id], (err, result) => {
+    if (err) {
+      console.log(err);
+    } else {
+      console.log(result);
+    }
+  });
+}
+var likes=(req, res)=>{
+  var likesql='INSERT INTO likes SET ? '
+  var params = {
+    post_id: req.body.postid,
+    user_id: req.body.userid,
+  };
+  db.query(likesql,[params], (err, result) => {
+    if (err) {
+      console.log(err);
+    } else {
+      console.log(result);
+    }
+  });
+}
+var getlikes = (req, res) => {
+  console.log(req.body);
+  var getlikes= "SELECT * FROM likes ";
+  db.query(getlikes, (err, result) => {
+    if (err) {
+      console.log(err);
+    } else {
+      res.send(result)
+      console.log(result);
+    }
+  });
+};
+
 module.exports = {
   register,
   login,
@@ -248,4 +205,6 @@ module.exports = {
   getcommit,
   postget,
   postgetwithid,
+  deletecommits,
+  likes,getlikes
 };

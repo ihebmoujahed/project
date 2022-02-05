@@ -26,7 +26,7 @@ class App extends React.Component {
     })
     .catch((err) => { console.log(err) });
 }
-    connect (emailLog,passwordLog)  {
+  connect (emailLog,passwordLog)  {
       axios.post('http://localhost:3000/api/login', {
         email:emailLog,
         password:passwordLog
@@ -36,6 +36,10 @@ class App extends React.Component {
         this.setState({userinfo:result.data.userinfo,redirect:result.data.redirect})
       }); 
   };
+  logout(){
+    console.log("cliked");
+    this.setState({userinfo:{},redirect:'/'})
+  }
   render() {
     return (
      <Router>    
@@ -44,7 +48,7 @@ class App extends React.Component {
         <Route path="/register" element={<Register/>}/> 
         <Route path="/PostNew" element={<PostNew data={this.state.userinfo.id}/>}/> 
         <Route path="/LogIn" element={<LogIn connect={this.connect.bind(this)} />}/> 
-        <Route path="/MainPage" element={<MainPage userId={this.state.userinfo.id} />}/>
+        <Route path="/MainPage" element={<MainPage userId={this.state.userinfo.id} logout={this.logout.bind(this)} />}/>
         <Route path="/account" element={<Account data={this.state.userinfo}/>}/>
         <Route path="/Editprofile" element={<Editprofile data={this.state.userinfo.id}/>}/>
         <Route path="/Search"  element={<Search data={this.state.userinfo.id}/>}/>

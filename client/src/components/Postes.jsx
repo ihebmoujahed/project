@@ -1,9 +1,8 @@
 import React,{useState,useEffect} from "react";
-
+import Commints from "./Commints.jsx";
 import axios from "axios";
 const Postes=(props)=> {
-    // const [posts,setPosts] = useState([]);
-    // const [like, setLike] = useState(0); onClick={setLike(like+1)}
+    const [like, setLike] = useState(0); 
     const [comment, setComment] = useState(''); 
     const [commentId, setCommentId] = useState(undefined);
     // const [share, setShare] = useState();
@@ -17,15 +16,37 @@ const Postes=(props)=> {
       })
       console.log(comment,"user",props.userid,"comid",commentId);
     }
-  
+    
+    const handleShare = (title,url,id) =>{
+      axios.post('/api/post', {
+        title:title,
+        image:url,
+        userid:id
+    })
+    .then((result)=>{
+        console.log(result)
+    })
+    .catch((error)=>{console.log(error)})
+  }
+  const handleLike = (id,postid) =>{
+    axios.post('/api/likes', {
+      postid:postid,
+      userid:id
+  })
+  .then((result)=>{
+      console.log(result)
+  })
+  .catch((error)=>{console.log(error)})
+}
+
   return (
       <div>
         <div className="post-container" id={props.data.id}>
           <p>{props.data.title}</p>
           <img src={props.data.image} className="image" width="100" height="100"/>
-          <button className="like-btn" >Like</button>
+          <button className="like-btn" onClick={()=>{handleLike(props.userid,props.data.id)}}>Like</button>
           <button className="comment-btn"  onClick={()=>{setStatus(true);setCommentId(props.data.id)} }>Comment</button>
-          <button className="share-btn">Share</button>
+          <button className="share-btn" onClick={()=>{handleShare(props.data.title,props.data.image,props.userid)} }>Share</button>
           {status?
             <div>
              <textarea name="comments" 
@@ -35,6 +56,7 @@ const Postes=(props)=> {
             </div>
             :null
           }
+          <Commints id={props.data.id}  />
         </div>
       </div>
   );  

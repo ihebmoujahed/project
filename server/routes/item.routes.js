@@ -9,8 +9,10 @@ router.post("/get/post/id", itemController.postgetwithid);
 router.post("/commits", itemController.commits);
 router.post("/searchName", itemController.searchName);
 router.get("/searchget", itemController.searchget);
-router.delete("/delete/poste/commit", itemController.deleteposte);
+router.delete("/delete/poste", itemController.deleteposte);
 router.put("/updateAccunt", itemController.updateAccunt);
-router.get("/get/commit", itemController.getcommit);
-
+router.post("/get/commit", itemController.getcommit);
+router.delete("/delete/poste/commit", itemController.deletecommits);
+router.post("/likes", itemController.likes);
+router.get("/getlikes", itemController.getlikes);
 module.exports = router;

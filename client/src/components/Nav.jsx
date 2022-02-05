@@ -3,7 +3,7 @@ import Search from "./Search.jsx";
 import { Link } from "react-router-dom";
 
 // import style from "../../public/style.css"
-function Nav() {
+function Nav(props) {
   return (
     <div className="nav-bar">
       <nav className="nav">
@@ -12,10 +12,13 @@ function Nav() {
         </Link>
         <Search />
         <Link to="/PostNew">
-          <li>Post</li>
+          <li>POST</li>
         </Link>
         <Link to="/account">
-          <li>My Profile</li>
+          <li>MY PROFILE</li>
+        </Link>
+        <Link to="/" onClick={()=>props.logout()}>
+          <li>LOGOUT</li>
         </Link>
       </nav>
     </div>
