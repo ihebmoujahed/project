@@ -72,7 +72,7 @@ class Account extends React.Component {
   // 
   deletepost(id){
     console.log(id);
-    axios.delete("/api/delete/poste/commit",{id:id})
+    axios.delete("/api/delete/poste/commit",{data:{id:id}})
     .then((res)=>{console.log(res)})
     .catch((err)=>{console.log(err)})
     axios.post("/api/get/post/id",{id:this.props.data.id})

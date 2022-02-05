@@ -86,22 +86,15 @@ console.log(req.body,'get with id')
 
 var deleteposte = (req, res) => {
   console.log(req.body,'del with id')
-  // var delsql = "DELETE FROM posts WHERE id = ?";
-  // db.query(delsql, [req.body.id], (err, result) => {
-  //   if (err) {
-  //     console.log(err);
-  //   } else {
-  //     console.log(result);
-  //   }
-  // });
-  // var deletcommits = "DELETE FROM comments WHERE post_id = ?";
-  // db.query(deletcommits,[req.body.id], (err, result) => {
-  //   if (err) {
-  //     console.log(err);
-  //   } else {
-  //     console.log(result);
-  //   }
-  // });
+  var delsql = "DELETE FROM posts WHERE id = ?";
+  db.query(delsql, [req.body.id], (err, result) => {
+    if (err) {
+      console.log(err);
+    } else {
+      console.log(result);
+    }
+  });
+
 };
 var searchName = (req, res) => {
   var searchName = "SELECT * FROM users WHERE firstname OR lastname =? ";
@@ -176,6 +169,16 @@ var commits = (req, res) => {
     }
   });
 };
+var deletecommits=(req, res)=>{
+   // var deletcommits = "DELETE FROM comments WHERE post_id = ?";
+  // db.query(deletcommits,[req.body.id], (err, result) => {
+  //   if (err) {
+  //     console.log(err);
+  //   } else {
+  //     console.log(result);
+  //   }
+  // });
+}
 module.exports = {
   register,
   login,
@@ -188,4 +191,5 @@ module.exports = {
   getcommit,
   postget,
   postgetwithid,
+  deletecommits
 };

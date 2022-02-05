@@ -12,10 +12,10 @@ function Nav() {
         </Link>
         <Search />
         <Link to="/PostNew">
-          <li>Post</li>
+          <li>POST</li>
         </Link>
         <Link to="/account">
-          <li>My Profile</li>
+          <li>MY PROFILE</li>
         </Link>
       </nav>
     </div>
