@@ -13,7 +13,7 @@ const commints=(props)=> {
     },[])
     
   return (
-  <div>
+  <div style={{border : '1px solid'}}>
       
     {comitofposts.map((element, i)=>{return  (<p>{element.des}</p>) })}  
   </div>
