@@ -43,7 +43,7 @@ const Postes=(props)=> {
       <div style={{textAlign: 'center'}}  className="home">
         <div className="post-container" id={props.data.id}>
           <p>{props.data.title}</p>
-          <img src={props.data.image} className="image" width="200" height="200"/>
+          <img src={props.data.image} className="image" width="300" height="300"/>
           <button className="like-btn" onClick={()=>{handleLike(props.userid,props.data.id)}}>Like</button>
           <button className="comment-btn"  onClick={()=>{setStatus(true);setCommentId(props.data.id)} }>Comment</button>
           <button className="share-btn" onClick={()=>{handleShare(props.data.title,props.data.image,props.userid)} }>Share</button>

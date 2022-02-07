@@ -239,3 +239,6 @@ li {
 #login:hover, #register:hover{
   color: black;
 }
+*{
+  overflow :auto
+}
